@@ -18,17 +18,27 @@ class Hand : public frc2::SubsystemBase {
  public:
   Hand();
 
+  bool extended = false;
+
+  void spinWheels(double left, double right);
+  void extendSolenoid();
+  void retractSolenoid();
+  bool getState();
   /**
    * Will be called periodically whenever the CommandScheduler runs.
    */
   void Periodic();
 
  private:
+
+
+
+
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
   WPI_TalonSRX m_hand1{kHandMotor1};
   WPI_TalonSRX m_hand2{kHandMotor2};
-  // frc::DoubleSolenoid s_piston{kHandSolenoid};
+  frc::DoubleSolenoid s_piston{kHandSolenoidStart, kHandSolenoidEnd};
   rev::ColorSensorV3 m_color_sensor{frc::I2C::Port::kOnboard};
 
 };
