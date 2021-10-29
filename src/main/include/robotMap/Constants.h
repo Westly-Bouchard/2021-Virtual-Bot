@@ -5,3 +5,8 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
+constexpr double kShoulderP = 0;
+constexpr double kShoulderI = 0;
+constexpr double kShoulderD = 0;
+
+

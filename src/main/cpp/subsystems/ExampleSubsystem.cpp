@@ -9,8 +9,10 @@
 
 ExampleSubsystem::ExampleSubsystem() {
   // Implementation of subsystem constructor goes here.
+   CommandScheduler.getInstance().setDefaultCommand(exampleSubsystem, exampleCommand);
 }
 
 void ExampleSubsystem::Periodic() {
   // Implementation of subsystem periodic method goes here.
+
 }

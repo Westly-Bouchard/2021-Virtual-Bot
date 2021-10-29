@@ -6,8 +6,16 @@
 /*----------------------------------------------------------------------------*/
 
 #include "subsystems/Arm.h"
+#include "robotMap/Constants.h"
 
-Arm::Arm() {}
+Arm::Arm() {
+  m_shoulder2.Follow(m_shoulder, false);
+  m_shoulder.SetIdleMode(rev::CANSparkMax::IdleMode::kBrake);
+}
 
 // This method will be called once per scheduler run
 void Arm::Periodic() {}
+
+void Arm::SetSpeeds(double wristSpeed, double shoulderSpeed) {
+
+}

@@ -17,7 +17,7 @@ class Arm : public frc2::SubsystemBase {
  public:
   Arm();
   
-  
+  void SetSpeeds(double wristSpeed, double shoulderSpeed);
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.
@@ -25,8 +25,11 @@ class Arm : public frc2::SubsystemBase {
   void Periodic();
 
  private:
-  rev::CANSparkMax m_shoulder1{kShoulderMotor1, rev::CANSparkMax::MotorType::kBrushless};
+  rev::CANSparkMax m_shoulder{kShoulderMotor1, rev::CANSparkMax::MotorType::kBrushless};
   rev::CANSparkMax m_shoulder2{kShoulderMotor2, rev::CANSparkMax::MotorType::kBrushless};
+
+  rev::CANEncoder m_shoulderEncoder = m_shoulder.GetEncoder();
+  frc2::PIDController m_PID;
 
   WPI_TalonFX m_wrist{kWristMotor};
 };
